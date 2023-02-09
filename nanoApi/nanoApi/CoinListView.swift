@@ -9,8 +9,10 @@ import SwiftUI
 
 struct CoinListView: View {
     
+    @State private var searchCoin = ""
+    
     var body: some View {
-        NavigationView {
+        NavigationStack {
                 List(0 ..< 30) { itens in
                     HStack {
                         Image(systemName: "dollarsign.circle")
@@ -22,6 +24,7 @@ struct CoinListView: View {
                 }
                 .navigationTitle("Lista de Moedas")
         }
+        .searchable(text: $searchCoin)
     }
 }
 
