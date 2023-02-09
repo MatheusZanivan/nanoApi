@@ -12,17 +12,11 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            List{
-                ForEach(vm.allCoins){ coin in
-                    Text(String(coin.name))
-                    
-                }
+           Text("Hello world")
             }
-            .listStyle(PlainListStyle())
         }
-        Spacer(minLength: 0)
     }
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
