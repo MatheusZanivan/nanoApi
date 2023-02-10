@@ -9,18 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject private var vm: HomeViewModel
+    
     var body: some View {
-        NavigationView {
-            NavigationLink("Teste", destination: CoinListView())
-            VStack {
-                Text("Blabla")
+        VStack {
+           Text("Hello world")
             }
         }
     }
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        NavigationView{
+            ContentView()
+        }
+        .environmentObject(HomeViewModel())
     }
+    
+        
 }

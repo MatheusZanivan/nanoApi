@@ -34,6 +34,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B66715D298DA044009FFE69 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B66715E298DA061009FFE69 /* apiInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3B66716029916D8B009FFE69 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3BCDB66B298ADB9600B9C2EC /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3B66716129916D9C009FFE69 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3B8C4D572992C64A00AFF306 /* homeViewModel.swift */,
+				3B8C4D592992C74100AFF306 /* CoinDataService.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		3BCDB65D298ADB9600B9C2EC = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B66715F298DA061009FFE69 /* apiInfo.swift in Sources */,
 				3BCDB66C298ADB9600B9C2EC /* ContentView.swift in Sources */,
 				3BCDB66A298ADB9600B9C2EC /* nanoApiApp.swift in Sources */,
 				193016622994327B00C39934 /* CoinListView.swift in Sources */,
