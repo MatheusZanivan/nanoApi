@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @EnvironmentObject private var vm: HomeViewModel
     
     var body: some View {
         VStack {
-           Text("Hello world")
+           Text("Vai Palmeiras!")
+                .foregroundColor(.green)
+                .textCase(.uppercase)
+            
             }
         }
     }
