@@ -9,16 +9,24 @@ import SwiftUI
 
 struct CoinListView: View {
     
+    
     @State private var searchCoin = ""
+    @StateObject private var vm = HomeViewModel()
     
     var body: some View {
         NavigationStack {
-                List(0 ..< 30) { itens in
+            List(vm.allCoins) { coin in
                     HStack {
-                        Image(systemName: "dollarsign.circle")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                        Text("Moeda")
+                        AsyncImage(url: URL(string: coin.image)) { image in
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        
+                                } placeholder: {
+                                    Color.gray
+                                }
+                                .frame(width: 30, height: 30)
+                        Text(coin.name)
                             .font(.title2)
                     }
                 }
