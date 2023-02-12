@@ -7,12 +7,19 @@
 
 import SwiftUI
 
+class Numbers: ObservableObject {
+    
+    @Published var number: Int
+
+    init(number: Int) {
+        self.number = number
+    }
+}
+
 struct ContentView: View {
     
-    @State private var tf: String = "" //teste
-    @State private var teste = "0" //TESTE10
+    @StateObject var number = Numbers(number: Int())
     @State private var selectCoin = false
-    
     
     var body: some View {
         
@@ -43,13 +50,12 @@ struct ContentView: View {
                             .font(.title)
                             .fontWeight(.bold)
                         
-                        TextField("0", text: $tf)
+                        TextField("", value: $number.number, formatter: NumberFormatter())
                             .textFieldStyle(OvalTextFieldStyle())
                     }
                     
                     Button {
                         print("Botão seta 1 apertado")
-                        teste = tf //TESTE
                     } label: {
                         Image(systemName: "arrow.left.arrow.right")
                             .resizable()
@@ -68,7 +74,7 @@ struct ContentView: View {
                             .font(.title)
                             .fontWeight(.bold)
      
-                        Text(teste)
+                        Text("\(number.number * 2)") // calculo com o número
                             .font(.body)
                             .fontWeight(.medium)
                             .multilineTextAlignment(.leading)
