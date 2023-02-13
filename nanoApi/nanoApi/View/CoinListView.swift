@@ -16,21 +16,25 @@ struct CoinListView: View {
     var body: some View {
         NavigationStack {
             List(vm.allCoins) { coin in
+                NavigationLink {
+                    CoinInfo()
+                } label: {
                     HStack {
                         AsyncImage(url: URL(string: coin.image)) { image in
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        
-                                } placeholder: {
-                                    Color.gray
-                                }
-                                .frame(width: 30, height: 30)
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                            
+                        } placeholder: {
+                            Color.gray
+                        }
+                        .frame(width: 30, height: 30)
                         Text(coin.name)
                             .font(.title2)
                     }
                 }
-                .navigationTitle("Lista de Moedas")
+            }
+            .navigationTitle("Lista de Moedas")
         }
         .searchable(text: $searchCoin)
     }
