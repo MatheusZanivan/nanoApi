@@ -10,6 +10,7 @@ import SwiftUI
 class UserProgress: ObservableObject {
     
     @Published var number: Int
+    @State var teste: Int?
     
     init(number: Int) {
         self.number = number
@@ -45,7 +46,7 @@ struct ContentView: View {
                                 .foregroundColor(Color.black)
                         }
                         .sheet(isPresented: $selectCoin) {
-                            Text("ABRIU A BOTTOM SHEET")
+                            CoinListBottonSheetView()
                                 .presentationDetents([.medium, .large])
                         }
                         Text("Moeda")
