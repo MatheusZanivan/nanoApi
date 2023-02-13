@@ -8,18 +8,30 @@
 import SwiftUI
 
 struct CoinInfo: View {
-    var body: some View {
     
+    @State var coin: CoinModel
+    
+    
+    var body: some View {
+        
         VStack{
             Spacer()
-            Image(systemName: "dollarsign.circle")
-                .resizable()
-                .frame(width: 190, height: 190)
-            Text("Bitcoin")
+            AsyncImage(url: URL(string: coin.image)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                
+            } placeholder: {
+                Color.gray
+            }
+//            .frame(width: 30, height: 30)
+            .frame(width: 190, height: 190)
+            .padding()
+            Text(coin.name)
                 .font(.system(size: 45))
                 .fontWeight(.semibold)
             Spacer()
-            
+                .frame(height: 100)
             VStack(spacing: 15){
                 Text("* Lorem ipsum dolor sit amet")
                     .font(.system(size: 20))
@@ -33,13 +45,14 @@ struct CoinInfo: View {
             }
             
             Spacer()
+                .frame(height: 200)
         }.padding(.all)
         
     }
 }
 
-struct CoinInfo_Previews: PreviewProvider {
-    static var previews: some View {
-        CoinInfo()
-    }
-}
+//struct CoinInfo_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CoinInfo()
+//    }
+//}

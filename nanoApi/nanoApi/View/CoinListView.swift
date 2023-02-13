@@ -14,11 +14,10 @@ struct CoinListView: View {
     @StateObject private var vm = HomeViewModel()
     
     var body: some View {
-        NavigationStack {
+//        NavigationStack {
             List(vm.allCoins) { coin in
-                NavigationLink {
-                    CoinInfo()
-                } label: {
+                
+                NavigationLink(destination: CoinInfo(coin: coin)) {
                     HStack {
                         AsyncImage(url: URL(string: coin.image)) { image in
                             image
@@ -33,12 +32,10 @@ struct CoinListView: View {
                             .font(.title2)
                     }
                 }
-            }
+            }.searchable(text: $searchCoin)
             .navigationTitle("Lista de Moedas")
         }
-        .searchable(text: $searchCoin)
     }
-}
 
 struct CoinListView_Previews: PreviewProvider {
     static var previews: some View {
